@@ -18,15 +18,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    int myInt = 5;
+    int myInt = 100;
     
     if (myInt > 0) {
         // We can do the factorial
         int result = 1;
         for (int i = 1; i <= myInt; i++) {
             result = result * i;
+            if (result == 0) {
+                NSLog(@"The value of %d is too large to be calculated for XCode", myInt);
+                break; // This sentence close the program
+            }
         }
-        NSLog(@"%d! = %d", myInt, result);
+        if (result != 0) {
+            NSLog(@"%d! = %d", myInt, result);
+        }
     } else {
         NSLog(@"To do the factorial, the number needs to be a positive int");
     }
